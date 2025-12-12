@@ -19,7 +19,7 @@ st.header("What course are you looking for?")
 query = st.text_area("Describe the course you want:", height=100, 
     placeholder="Example: I want an easy AI course with no exams")
 
-n_results = st.selectbox("Number of results", [3, 5, 10], index=1)
+n_results = st.selectbox("Number of results", [1,2, 3, 4, 5], index=1)
 
 if st.button("Search", type="primary"):
     if query.strip():
