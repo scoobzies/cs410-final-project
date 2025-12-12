@@ -67,25 +67,35 @@ def recommend(query, n=5):
         if mask.any():
             df = df[mask]
     
+    if parsed['difficulty']:
+        df = df[df['diff_label'] == parsed['difficulty']]
+    
     df['score'] = 0.0
     
-    if parsed['difficulty']:
-        diff_scores = {'easy': 1, 'medium': 2, 'hard': 3}
-        target = diff_scores.get(parsed['difficulty'], 2)
-        df['score'] += df['diff_label'].apply(lambda x: -abs(diff_scores.get(x, 2) - target))
-    
     if parsed['workload'] == 'low':
-        df['score'] -= df['workload'] / 10
+        df['score'] -= df['workload'] / 5
     elif parsed['workload'] == 'high':
-        df['score'] += df['workload'] / 10
+        df['score'] += df['workload'] / 5
     
     for asp in parsed['avoid']:
-        df['score'] += df['course_id'].apply(lambda x: -2 if course_aspects.get(x, {}).get(asp, 0) > 30 else 0)
+        df['score'] += df['course_id'].apply(lambda x: -3 if course_aspects.get(x, {}).get(asp, 0) > 30 else 0)
     
     for asp in parsed['want']:
-        df['score'] += df['course_id'].apply(lambda x: 1 if course_aspects.get(x, {}).get(asp, 0) > 30 else 0)
+        df['score'] += df['course_id'].apply(lambda x: 2 if course_aspects.get(x, {}).get(asp, 0) > 30 else 0)
     
-    df['score'] += df['n_reviews'] / 50
+    df['score'] += df['n_reviews'] / 100
+    
+    if len(df) == 0:
+        df = courses_df.copy()
+        df['diff_label'] = df['course_id'].apply(get_difficulty)
+        df['workload'] = df['course_id'].apply(get_workload)
+        df['n_reviews'] = df['course_id'].apply(lambda x: course_stats.get(x, {}).get('n_reviews', 0))
+        df['score'] = 0.0
+        
+        if parsed['difficulty']:
+            diff_scores = {'easy': 1, 'medium': 2, 'hard': 3}
+            target = diff_scores.get(parsed['difficulty'], 2)
+            df['score'] += df['diff_label'].apply(lambda x: -abs(diff_scores.get(x, 2) - target) * 5)
     
     return df.sort_values('score', ascending=False).head(n)
 
