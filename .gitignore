@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+venv/
+.env
+.vscode/
+nltk_data/
+.DS_Store
