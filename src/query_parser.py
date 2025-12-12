@@ -16,7 +16,8 @@ area_words = {
     'Interactive Computing': ['graphics', 'interactive', 'visualization', '3d'],
     'Theory and Algorithms': ['theory', 'algorithm', 'automata'],
     'Architectire, Compilers, Parallel Computing': ['parallel', 'compiler', 'architecture', 'concurrent'],
-    'Elective' : ['elective']
+    'Elective' : ['elective'],
+    'Advanced Coursework' : ['advanced coursework'],
 }
 
 aspect_avoid = {
