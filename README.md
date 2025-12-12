@@ -13,6 +13,8 @@ py -m streamlit run app.py
 
 The application will open in your browser using Streamlit. Enter a description of the course you want and the amount of courses recommended to you. The system will recommend matching courses based on your requirements. 
 
+To exit the program, enter Ctrl + C in the terminal.
+
 ## NLP Techniques Used
 
 - Text preprocessing (tokenization, stopword removal, lemmatization)
