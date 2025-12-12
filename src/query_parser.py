@@ -8,7 +8,6 @@ diff_words = {
 
 area_words = {
     'Database and Information Systems': ['data', 'database', 'information', 'text', 'mining'],
-    'Artifical Intelligence': ['ai', 'artificial intelligence', 'machine learning', 'ml', 'deep learning', 'nlp', 'neural'],
     'Artificial Intelligence': ['ai', 'artificial intelligence', 'machine learning', 'ml', 'deep learning', 'nlp', 'neural'],
     'Systems and Networking': ['systems', 'network', 'networking', 'distributed', 'cloud', 'iot'],
     'Security and Privacy': ['security', 'privacy', 'cyber', 'cryptography'],
@@ -16,13 +15,14 @@ area_words = {
     'Scientific Computing': ['numerical', 'scientific'],
     'Interactive Computing': ['graphics', 'interactive', 'visualization', '3d'],
     'Theory and Algorithms': ['theory', 'algorithm', 'automata'],
-    'Architectire, Compilers, Parallel Computing': ['parallel', 'compiler', 'architecture', 'concurrent']
+    'Architectire, Compilers, Parallel Computing': ['parallel', 'compiler', 'architecture', 'concurrent'],
+    'Elective' : ['elective']
 }
 
 aspect_avoid = {
     'exam_heavy': ['no exam', 'no exams', 'without exam', 'avoid exam', 'hate exam', "don't want exam", 'dont want exam'],
     'project_based': ['no project', 'avoid project'],
-    'group_work': ['no group', 'no team', 'avoid group', 'solo', 'individual', 'alone'],
+    'group_work': ['no group', 'no team', 'avoid group', "don't want group"],
     'math_heavy': ['no math', 'avoid math', 'not math'],
     'reading_heavy': ['no reading', 'avoid reading']
 }
@@ -30,8 +30,8 @@ aspect_avoid = {
 aspect_want = {
     'exam_heavy': ['exam', 'exams', 'test based'],
     'project_based': ['project', 'hands on', 'practical', 'mp'],
-    'group_work': ['group', 'team', 'collaborate'],
-    'math_heavy': ['math', 'mathematical', 'theoretical', 'proof'],
+    'group_work': ['group', 'team', 'group project'],
+    'math_heavy': ['math', 'mathematical', 'theoretical',],
     'reading_heavy': ['reading', 'textbook', 'papers']
 }
 
